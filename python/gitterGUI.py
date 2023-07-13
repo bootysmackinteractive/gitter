@@ -125,17 +125,17 @@ root.title("[gitter] [v0.4] [©2023 b3b0]")
 root.geometry("450x390")
 root.resizable(False, False)
 
-dropdown_box = ttk.Combobox(root, width=41)
+dropdown_box = ttk.Combobox(root, width=64)
 dropdown_box.place(x=10, y=10)
 dropdown_box.bind("<<ComboboxSelected>>", dropdown_selection_changed)
 
-selected_project_label = ttk.Label(root, width=40)
+selected_project_label = ttk.Label(root, width=60)
 selected_project_label.place(x=10, y=35)
 
 commit_label = ttk.Label(root, text="Commit Message:", width=38)
 commit_label.place(x=10, y=90)
 
-commit_textbox = ttk.Entry(root, width=42)
+commit_textbox = ttk.Entry(root, width=67)
 commit_textbox.place(x=10, y=115)
 
 commit_button = ttk.Button(root, text="Commit", width=10, command=commit_button_click)
@@ -147,7 +147,7 @@ pull_button.place(x=160, y=145)
 status_button = ttk.Button(root, text="Status", width=8, command=status_button_click)
 status_button.place(x=310, y=145)
 
-output_textbox = tk.Text(root, width=52, height=9, font=("Courier New", 9))
+output_textbox = tk.Text(root, width=58, height=9, font=("Courier New", 9))
 output_textbox.place(x=10, y=180)
 
 scrollbar = ttk.Scrollbar(root, command=output_textbox.yview)
