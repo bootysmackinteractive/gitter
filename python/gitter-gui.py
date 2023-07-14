@@ -7,10 +7,14 @@ gitter_folder_path = os.path.expanduser("~/.gitter")
 projects_file_path = os.path.join(gitter_folder_path, "projects.json")
 
 def populate_dropdown():
-    projects = []
+    projects = {}
     if os.path.exists(projects_file_path):
         with open(projects_file_path, "r") as file:
             projects = json.load(file)
+
+    if isinstance(projects, list):
+        # Handle the case when projects is a list
+        projects = {project["name"]: project for project in projects}
 
     dropdown_box["values"] = list(projects.keys())
 
@@ -123,7 +127,7 @@ def status_button_click():
 root = tk.Tk()
 root.title("[gitter] [v0.4] [©2023 b3b0]")
 root.geometry("450x390")
-root.resizable(False, False)
+root.resizable(True, True)
 
 dropdown_box = ttk.Combobox(root, width=64)
 dropdown_box.place(x=10, y=10)
